@@ -1,17 +1,15 @@
 import React from "react";
 import { IMonthSale } from "../types/sales";
 import * as d3 from "d3";
-import { MONTH_SALES_CHART_CONTAINER_ID } from "../utils/constants";
 import { useD3 } from "../hooks/useD3";
-
-type Theme = "light" | "dark";
+import { type Theme } from "../types/styles";
 
 interface SalesChartProps {
   data: IMonthSale[];
   theme: Theme;
 }
 
-export const SalesChart: React.FC<SalesChartProps> = ({ data, theme }) => {
+export const BarChart: React.FC<SalesChartProps> = ({ data, theme }) => {
   const isDarkMode = theme === "dark";
 
   const ref = useD3(
@@ -27,8 +25,8 @@ export const SalesChart: React.FC<SalesChartProps> = ({ data, theme }) => {
       const margin = { top: 40, right: 30, bottom: 50, left: 60 };
 
       const axisColor = isDarkMode ? "#94a3b8" : "#475569";
-      const textColor = isDarkMode ? "#e2e8f0" : "#1e293b";
-      const barColor = isDarkMode ? "#5eead4" : "#2563eb";
+      const textColor = isDarkMode ? "#e2e8f0" : "#ffffff";
+      const barColor = isDarkMode ? "#CBC3E3" : "#00CED1";
       const barHoverColor = isDarkMode ? "#99f6e4" : "#60a5fa";
 
       const g = svg
@@ -134,7 +132,7 @@ export const SalesChart: React.FC<SalesChartProps> = ({ data, theme }) => {
   );
 
   return (
-    <div className="w-full h-full" id={MONTH_SALES_CHART_CONTAINER_ID}>
+    <div className="w-full h-full">
       <svg ref={ref} className="w-full h-full" />
     </div>
   );

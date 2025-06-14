@@ -1,1 +1,0 @@
-export const MONTH_SALES_CHART_CONTAINER_ID = 'month-sales-chart-container';

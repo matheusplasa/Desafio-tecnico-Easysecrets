@@ -1,19 +1,15 @@
 import React from "react";
-
-// import { Github } from 'react';
 import { ThemeToggle } from "./components/ThemeToggle";
-import { SalesChart } from "./components/SalesChart";
+import { BarChart } from "./components/barChart";
 import salesData from "./data/vendas.json";
-import { IMonthSale } from "./types/sales";
+import { IGeneralSaleData, IMonthSale } from "./types/sales";
 import { buildAreaData } from "./utils/buildAreaData";
-
-interface DataPoint {
-  month: string;
-  sales: number;
-}
+import { buildPieData } from "./utils/buildPieData";
+import { PieChart } from "./components/PieChart";
 
 export default function App() {
-  const data: IMonthSale[] = buildAreaData(salesData);
+  const barData: IMonthSale[] = buildAreaData(salesData);
+  const pieData: IGeneralSaleData[] = buildPieData(salesData);
 
   return (
     <div className="min-h-screen w-full text-slate-800 dark:text-slate-200 transition-colors duration-300">
@@ -45,7 +41,15 @@ export default function App() {
             Vendas Mensais
           </h2>
           <div className="h-[400px] md:h-[500px]">
-            <SalesChart data={data} theme={"light"} />
+            <BarChart data={barData} theme={"light"} />
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto bg-white dark:bg-slate-800/50 rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 border border-slate-200 dark:border-slate-800">
+          <h2 className="text-lg font-semibold mb-4 text-slate-900 dark:text-white">
+            Vendas Por Produto
+          </h2>
+          <div className="h-[400px] md:h-[500px]">
+            <PieChart data={pieData} theme={"light"} />
           </div>
         </div>
       </main>
