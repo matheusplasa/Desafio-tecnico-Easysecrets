@@ -1,65 +1,64 @@
-Desafio Técnico - Easysecrets
+# Desafio Técnico - Easysecrets
 
-Bem-vindo ao repositório do desafio técnico da Easysecrets. Esta é uma aplicação desenvolvida em React com TypeScript que consome dados de vendas e os renderiza em um gráfico de barras interativo e visualmente agradável.
+Olá! Bem-vindo ao meu repositório para o desafio técnico da Easysecrets. Desenvolvi esta aplicação em React com TypeScript para consumir e renderizar dados de vendas em um gráfico de barras e pie interativos.
 
-O projeto foi construído com foco na qualidade do código, na experiência do usuário (UX) e em uma arquitetura moderna e de fácil manutenção, mesmo diante dos desafios de integração de bibliotecas.
-✨ Visão Geral & Funcionalidades
+Construí este projeto com foco na qualidade do código, em uma boa experiência de usuário (UX) e em uma arquitetura moderna, superando os desafios de integração de bibliotecas para entregar um resultado funcional e elegante.
 
-A aplicação apresenta um dashboard de vendas simples, mas com diferenciais importantes:
+## ✨ Visão Geral & Funcionalidades
 
-    Gráfico Interativo e Responsivo: Construído com D3.js, o gráfico se adapta a qualquer tamanho de tela e oferece tooltips com informações detalhadas ao passar o mouse sobre as barras.
+A aplicação apresenta um dashboard de vendas com alguns diferenciais que implementei:
 
-    Tema Dark/Light: Um seletor de tema que persiste a escolha do usuário, oferecendo conforto visual em diferentes ambientes.
+* **Gráfico Interativo e Responsivo**: Utilizei D3.js para construir um gráfico que se adapta a qualquer tamanho de tela e oferece tooltips com informações detalhadas ao passar o mouse sobre as barras.
+* **Foco no Tema Dark**: A interface foi desenhada com um tema escuro funcional e elegante, visando o conforto visual do usuário.
+* **Animações Suaves**: As barras do gráfico possuem uma transição animada ao serem renderizadas, o que torna a interface mais fluida e profissional.
+* **Código Limpo e Otimizado**: Refatorei a aplicação para garantir um fluxo de dados claro e unidirecional, onde o estado é gerenciado pelo componente principal (`App.tsx`).
 
-    Animações Suaves: As barras do gráfico possuem uma transição animada ao serem renderizadas, tornando a interface mais fluida e profissional.
+## 🛠️ Minhas Decisões Técnicas (Stack & Arquitetura)
 
-    Código Limpo e Otimizado: A aplicação foi refatorada para garantir um fluxo de dados unidirecional e claro, com o estado sendo gerenciado pelo componente principal (App.tsx).
+A escolha das tecnologias foi pensada para entregar um produto robusto, performático e alinhado com as práticas de desenvolvimento mais atuais.
 
-🛠️ Decisões Técnicas (Stack & Arquitetura)
+### 1. **Core: React 19 + Vite**
 
-A escolha das tecnologias foi pensada para entregar um produto robusto, performático e alinhado com as práticas de desenvolvimento de 2025.
-1. Core: React 19 + Vite
+* **React 19**: Optei pela versão mais recente do React para aproveitar suas otimizações e features.
+* **Vite**: Escolhi o Vite como build tool pelo seu ambiente de desenvolvimento extremamente rápido (HMR) e build otimizado.
 
-    React 19: Utilizamos a versão mais recente do React (simulada) para aproveitar as últimas otimizações e features.
+### 2. **Linguagem: TypeScript**
 
-    Vite: Escolhido como build tool pelo seu ambiente de desenvolvimento extremamente rápido (Hot Module Replacement) e processo de build otimizado.
+* Para mim, o uso de TypeScript é fundamental para a robustez do projeto. Ele garante a segurança de tipos, o que reduz bugs e facilita a manutenção do código.
 
-2. Linguagem: TypeScript
+### 3. **Estilização: Tailwind CSS v4**
 
-    Fundamental para a robustez do projeto. O TypeScript garante a segurança de tipos, reduzindo bugs, facilitando a manutenção e melhorando a experiência de desenvolvimento (DX) com autocompletação e clareza no código.
+* A abordagem *utility-first* do Tailwind me permitiu construir a interface de forma rápida e consistente, sem precisar escrever CSS customizado.
 
-3. Estilização: Tailwind CSS v4
+### 4. **Visualização de Dados: D3.js**
 
-    A abordagem utility-first do Tailwind permite construir interfaces complexas de forma rápida e consistente, sem a necessidade de escrever CSS customizado. A versão 4 (simulada) simplifica o setup, integrando-se perfeitamente ao processo de build.
+* Minha escolha pelo **D3.js** foi intencional. Diferente de outras bibliotecas, o D3 me deu controle total sobre a manipulação do DOM, permitindo a criação de uma visualização de dados customizada e performática.
+* Para integrar o D3 com o React, criei um hook customizado, `useD3`, que abstrai a lógica de renderização e garante que tudo funcione de forma segura e eficiente.
 
-4. Visualização de Dados: D3.js
+### 5. **Estrutura de Código Simplificada**
 
-    A escolha pelo D3.js foi intencional. Diferente de bibliotecas de gráficos prontas, o D3 oferece controle total sobre a manipulação do DOM, permitindo a criação de visualizações de dados altamente customizadas e performáticas.
+* Durante o desenvolvimento, enfrentei alguns desafios com o build e as importações de módulos. Para garantir a estabilidade e a entrega de um projeto 100% funcional, tomei a decisão estratégica de consolidar toda a lógica em um **único arquivo** (`src/App.tsx`).
+* **Motivo**: Essa abordagem eliminou completamente os erros de build e me permitiu focar na funcionalidade. Reconheço que, em um projeto de produção em maior escala, eu separaria os arquivos em suas respectivas pastas (`components`, `hooks`, etc.) para melhor organização.
 
-    Integração com React: Para unir o modelo imperativo do D3 com o modelo declarativo do React, foi criado um hook customizado, useD3. Este hook abstrai a lógica de renderização do D3, garantindo que ele opere de forma segura e eficiente dentro do ecossistema do React.
+## 🚀 Como Rodar o Projeto
 
-5. Estrutura de Código Simplificada
+**Pré-requisitos:** Node.js v22+ e npm v10+.
 
-    Após um processo de depuração e refatoração, optou-se por consolidar toda a lógica dos componentes (ThemeToggle, SalesChart), o hook (useD3) e os dados em um único arquivo (src/App.tsx).
-
-    Motivo: Esta decisão, embora atípica para projetos maiores, foi tomada para eliminar completamente os erros de importação/exportação e garantir a funcionalidade do projeto neste contexto específico, demonstrando a capacidade de adaptar a arquitetura para resolver problemas de build. Em um projeto de produção maior, os arquivos seriam separados em suas respectivas pastas (components, hooks, etc.).
-
-🚀 Como Rodar o Projeto
-
-Pré-requisitos: Node.js v22+ e npm v10+.
-
-    Clone o repositório:
-
-    git clone https://github.com/SEU_USUARIO/Desafio-tecnico-Easysecrets.git
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/SEU_USUARIO/Desafio-tecnico-Easysecrets.git](https://github.com/SEU_USUARIO/Desafio-tecnico-Easysecrets.git)
     cd Desafio-tecnico-Easysecrets
+    ```
 
-    Instale as dependências:
-    Este projeto usa o React 19, que pode ter conflitos de dependência com outras bibliotecas. Use a flag --legacy-peer-deps para garantir que a instalação seja concluída.
-
+2.  **Instale as dependências:**
+    Este projeto usa o React 19. Para resolver possíveis conflitos, utilize a flag `--legacy-peer-deps`.
+    ```bash
     npm install --legacy-peer-deps
+    ```
 
-    Execute o servidor de desenvolvimento:
-
+3.  **Execute o servidor de desenvolvimento:**
+    ```bash
     npm run dev
+    ```
 
-A aplicação estará disponível em http://localhost:5173.
+A aplicação estará disponível em `http://localhost:5173`.
