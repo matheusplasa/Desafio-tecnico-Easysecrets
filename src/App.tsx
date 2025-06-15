@@ -1,11 +1,12 @@
 import React from "react";
 import { ThemeToggle } from "./components/ThemeToggle";
-import { BarChart } from "./components/barChart";
+import { BarChart } from "./components/BarChart";
 import salesData from "./data/vendas.json";
 import { IGeneralSaleData, IMonthSale } from "./types/sales";
 import { buildAreaData } from "./utils/buildAreaData";
 import { buildPieData } from "./utils/buildPieData";
 import { PieChart } from "./components/PieChart";
+import { FaGithub } from "react-icons/fa";
 
 export default function App() {
   const barData: IMonthSale[] = buildAreaData(salesData);
@@ -19,12 +20,12 @@ export default function App() {
         </h1>
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/SEU_USUARIO/Desafio-tecnico-Easysecrets"
+            href="https://github.com/matheusplasa/desafio-tecnico-easysecrets/tree/main"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ver código no GitHub"
           >
-            Github
+            <FaGithub size={36} />
           </a>
           <ThemeToggle
             theme={"light"}
@@ -55,7 +56,9 @@ export default function App() {
       </main>
 
       <footer className="text-center p-4 mt-8 text-sm text-slate-500 dark:text-slate-400">
-        <p>Desenvolvido para o Desafio Técnico da Easysecrets.</p>
+        <p>
+          Desenvolvido para o Desafio Técnico da Easysecrets - Matheus Plasa
+        </p>
       </footer>
     </div>
   );
